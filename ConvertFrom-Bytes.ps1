@@ -1,4 +1,4 @@
-function ConvertTo-Txt
+function ConvertFrom-Bytes
 {
 <#
 .SYNOPSIS
@@ -16,11 +16,11 @@ Path to the file where bytes for one of the files are saved.
 Path where the key created.
 
 .EXAMPLE
-PS > ConvertTo-Txt -ByteFile C:\ContinuousIntrusion\master.txt -KeyFile C:\ContinuousIntrusion\master.key
+PS > ConvertFrom-Bytes -ByteFile C:\ContinuousIntrusion\master.txt -KeyFile C:\ContinuousIntrusion\master.key
 Use above command to convert bytes of master.key back to the file.
 
 .EXAMPLE
-PS > ConvertTo-Txt -ByteFile C:\ContinuousIntrusion\hudson.util.Secret.txt -KeyFile C:\ContinuousIntrusion\hudson.util.Secret
+PS > ConvertFrom-Bytes -ByteFile C:\ContinuousIntrusion\hudson.util.Secret.txt -KeyFile C:\ContinuousIntrusion\hudson.util.Secret
 Use above command to convert bytes of hudson.util.Secret back to the file.
 
 
