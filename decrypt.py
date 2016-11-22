@@ -45,6 +45,15 @@ def main():
     assert MAGIC in x
     print re.findall('(.*)' + MAGIC, x)[0]
 
+  privatekeys = re.findall(r'<privateKey>(.*?)</privateKey>', credentials)
+  for privatekey in privatekeys:
+    p = base64.decodestring(privatekey)
+    o = AES.new(k, AES.MODE_ECB)
+    x = o.decrypt(p)
+    print x
+    assert MAGIC in x
+    print re.findall('(.*)' + MAGIC, x)[0]
+
 if __name__ == '__main__':
   main()
 
