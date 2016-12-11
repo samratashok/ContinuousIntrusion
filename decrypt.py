@@ -54,6 +54,14 @@ def main():
     assert MAGIC in x
     print re.findall('(.*)' + MAGIC, x)[0]
 
+  bindpasswords = re.findall(r'<bindPassword>(.*?)</bindPassword>', credentials)
+  for bindpassword in bindpasswords:
+    p = base64.decodestring(bindpassword)
+    o = AES.new(k, AES.MODE_ECB)
+    x = o.decrypt(p)
+    assert MAGIC in x
+    print re.findall('(.*)' + MAGIC, x)[0]
+
 if __name__ == '__main__':
   main()
 
